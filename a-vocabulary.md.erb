@@ -20,7 +20,7 @@ En Meteor Collection är datalagringen som automatiskt synkroniseras mellan clie
 
 #### Beräkning
 
-En beräkning är ett block av kod som körs varje gång någan av de reaktiva datakällorna som den beror på förändras. Om du har en reaktiv datakälla (som t.ex. en Sessions-variable) och vill reagera reaktivt på den, kommer du behöva sätta upp en beräkning för den.
+En beräkning (computation) är ett block av kod som körs varje gång någan av de reaktiva datakällorna som den beror på förändras. Om du har en reaktiv datakälla (som t.ex. en Sessions-variable) och vill reagera reaktivt på den, kommer du behöva sätta upp en beräkning för den.
 
 #### Cursor
 
@@ -40,51 +40,45 @@ Mongo är en dokument-baserad datalagring, där objekten som kommer ur en collec
 
 #### Helpers
 
-När en template behöver rendera något som är mer komplext än ett dokuments fält kan den anropa en helper, som är en funktion som används för att hjälpa renderingen.
+När en template behöver rendera något som är mer komplext än ett dokuments fält kan den anropa en hjälpfunktion (en "helper"), som är en funktion som används för att hjälpa renderingen av mallen.
 
 #### Latency Compensation
 
-Är en teknik som används för att tillåta simulering av metodanrop på client:en, för att undvika laggighet medan man väntar på att servern ska svara.
+Latency Compensation en teknik som används för att tillåta simulering av metodanrop på client:en, för att undvika laggighet medan man väntar på att servern ska svara.
 
-#### Method
+#### Metod
 
-En Meteor-metod är ett fjärrprocedursanrop från en client till en server, med viss speciell logik för att hålla reda på collections-förändringar och tillåta Latency Compensation.
+En Meteor-metod är ett fjärrprocedursanrop från en client till en server, med viss speciell logik för att hålla reda på collections förändringar och tillåta latency compensation.
 
 #### MiniMongo
 
 Client-sidans collection är en datalagring i minnet som erbjuder ett Mongo-liknande API. Det bibliotek som stödjer detta beteende kallas "MiniMongo", för att indikera att det är en mindre version av Mongo som körs helt i minnet.
 
-#### Package
+#### Paket
 
-////
+Ett Meteor-paket (package) kan bestå av JavaScript-kod som körs på servern, JavaScript-kod som körs på client:en, instruktioner för hur man ska omvandla resurser (t.ex. SASS till CSS), och resurser som ska bearbetas.<br/>
+Ett paket är som ett överladdat bibliotek. Meteor kommer med en omfattande uppsättning av grundläggande paket, och det finns också [Atmosphere](http://atmosphere.meteor.com), som är en samling av alla tredjeparts-paket som bidragits av communityt.
 
-  1. ////
-  2. ////
-  3. ////
-  4. ////
+#### Publicering
 
-////
-
-#### Publication
-
-////
+En publicering (publication) är en namngiven samlign av data som är anpassad för varje användare som prenumerar till den. Du sätter upp publiceringar på servern.
 
 #### Server
 
-////
+Meteor-servern är en HTTP och en DDP server som körs via node.js. Den består av alla Meteor bibliotek och JavaScript som du skapat på serversidan. När du startar din Meteor server ansluter den till en Mongo-databas (som startar automatiskt).
 
 #### Session
 
-////
+En session i Meteor refererar till client-sidans reaktiva datakälla som används av din applikation för att hålla reda på tillstånd som användaren står vid.
 
-#### Subscription
+#### Prenumeration
 
-////
+En prenumeration (subscription) är en anslutning till en publicering för en specifik client. Prenumerationen är kod som körs i webbläsaren som kommunicerar med servern och håller data i sync.
 
 #### Template
 
-////
+En template är en metod som genererar HTML i JavaScript. Som standard stödjer Meteor Spacebars, ett logiklöst mall-system, även om det finns planer att stödja fler i framtiden.
 
 #### Template Data Context
 
-////
+När en template renderas, refererar den till ett JavaScript-objekt som innehåller specifik just data för denna rendering. Vanligtvis så är sådanna objekt helt vanliga gamla JavaScript-objekt (POJOs), ofta dokument från en collection, men även vara mer komplicerade och ha funktioner med sig.
