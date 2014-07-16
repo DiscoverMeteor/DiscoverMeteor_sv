@@ -8,27 +8,27 @@ contents: Granska några vanliga Meteor termer.
 paragraphs: 24
 ---
 
-////
+I den här boken kommer du stöta på nya ord eller begrepp som används i ett visst sammanhang Meteor. Här kan du läsa om dessa.
 
 #### Client
 
-////
+När vi talar om en client, så syftar vi på kod som körs i användarens *webbläsare*, oavsett om det är en traditionell webbläsare såsom Firefox eller Safari, eller något så komplext som en UIWebView i en native iPhone applikation.
 
 #### Collection
 
-////
+En Meteor Collection är datalagringen som automatiskt synkroniseras mellan client:en och servern. En Collection har ett namn (som t.ex. `posts`), och finns normalt både hos client:en och servern. Medans de beter de sig olika, så har dom ett gemensamt API baserat på Mongos API.
 
-#### Computation
+#### Beräkning
 
-////
+En beräkning är ett block av kod som körs varje gång någan av de reaktiva datakällorna som den beror på förändras. Om du har en reaktiv datakälla (som t.ex. en Sessions-variable) och vill reagera reaktivt på den, kommer du behöva sätta upp en beräkning för den.
 
 #### Cursor
 
-////
+En cursor är resultatet av körningen av en sökfråga till en Mongo Collection. På client:ens sida är en cursor inte bara en array med resultatet, utan ett *reaktivt* object som kan observeras på när objekt i den relevanta collection:en blir tillagda, borttagna och updaterade.
 
 #### DDP
 
-////
+DDP är Meteors Distribuerade Dataprotokoll, alltså det trådade protokoll som används för att synkronisera collection:er och som som tar metodanrop. DDP är avsett som ett generiskt protokoll, som tar plats istället för HTTP för realtidsapplikationer som är datatunga.
 
 #### Deps
 
