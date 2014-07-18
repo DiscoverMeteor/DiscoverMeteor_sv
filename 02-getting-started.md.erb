@@ -31,9 +31,9 @@ Du kan enkelt följa den guiden upp till (och inklusive) sektionen "Installing M
 
 ### Meteorite
 
-Till grund i faktumet att Meteor inte stödjer tredje-parts paket direkt "out of the box", så har Tom Coleman (en av denna bokens författare) och som medlem i communityt skapat [Meteorite](http://oortcloud.github.com/meteorite/), en "wrapper" för Meteor. Meteorite tar alltså också hand om installationen av Meteor för dig och kopplar ihop det med varje paket du stöter på.
+Till grund i faktumet att Meteor inte stödjer tredjeparts paket direkt "out of the box", så har Tom Coleman (en av denna bokens författare) och som medlem i communityt skapat [Meteorite](http://oortcloud.github.com/meteorite/), en "wrapper" för Meteor. Meteorite tar alltså också hand om installationen av Meteor för dig och kopplar ihop det med varje paket du stöter på.
 
-Då vi kommer bero på tredje-parts paket för några av Microscopes egenskaper, låt oss därmed installera Meteorite.
+Då vi kommer bero på tredjeparts paket för några av Microscopes egenskaper, låt oss därmed installera Meteorite.
 
 ### Installera Meteorite
 
@@ -110,7 +110,7 @@ Grattis! Du har nu fått igång din första Meteor applikation. Förresten, allt
 
 ### Lägg till ett paket
 
-Vi kommer nu använda Meteorite för att lägga till ett smart-paket som låter oss inkludera [Bootstrap](http://getbootstrap.com/) i vårt projekt:
+Vi kommer nu använda Meteorite för att lägga till ett smartpaket som låter oss inkludera [Bootstrap](http://getbootstrap.com/) i vårt projekt:
 
 ~~~bash
 $ mrt add bootstrap
@@ -125,10 +125,10 @@ $ mrt add bootstrap
 När vi talar om paket i kontextet av Meteor, så spelar det roll att vara specifik. Meteor använder fem grundläggande typer av paket:
 
 - Meteor-kärnan är själv uppdelat i flera olika **kärnpaket**. Dom är inkluderade med varje Meteor applikation, och du kommer i princip aldrig behöva oroa dig för dessa.
-- Meteor **smart-paket** är en grupp av paket [omkring 37 paket](http://docs.meteor.com/#packages) (du kan få den fulla listan med `meteor list`) som kommer paketerade med Meteor och som du kan valfritt lägga till i din applikation. Du kan även lägga till dem när du inte använder Meteorite, med `meteor add packagename`.
+- Meteor **smartpaket** är en grupp av paket [omkring 37 paket](http://docs.meteor.com/#packages) (du kan få den fulla listan med `meteor list`) som kommer paketerade med Meteor och som du kan valfritt lägga till i din applikation. Du kan även lägga till dem när du inte använder Meteorite, med `meteor add packagename`.
 - **Lokala paket** är specialanpassade paket som du kan skapa själv och lägga i mappen `/packages`. Du behöver inte Meteorite för att använda dem heller.
-- **Atmosphere smart-paket** är en tredje-parts Meteor-paket som listas på [Atmosphere](https://atmospherejs.com). Meteorite behövs för att importera dessa.
-- **NPM paket** (Node-paketerade moduler) är Node.js paket. Även om de inte fungerar direkt "out of the box" med Meteor, så *kan* dom användas av den föregående typen av paket.
+- **Atmosphere smartpaket** är en tredjeparts Meteor-paket som listas på [Atmosphere](https://atmospherejs.com). Meteorite behövs för att importera dessa.
+- **NPM-paket** (Node-paketerade moduler) är Node.js paket. Även om de inte fungerar direkt "out of the box" med Meteor, så *kan* dom användas av den föregående typen av paket.
 
 <% end %>
 
