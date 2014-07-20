@@ -167,7 +167,7 @@ Du kommer märka att Meteor Up stödjer autentisering baserade på lösenord och
 
 Nästa steg är att konfigurera en MongoDB databas för din app. Vi rekommenderar att ni använder [MongoHQ](https://www.mongohq.com/home) eller vilken moln-MongoDB-leveratör som helst, då de erbjuder professionell support och bättre förvaltningsverktyg.
 
-////
+Om du bestämt dig för att använda MongoHQ, ändra `setupMongo` till `false` och lägg till miljövariabeln `MONGO_URL` till blocket `env` i filen `mup.json`. Om du bestämt dig för att förvalta din MongoDB med Meteor Up så behöver du bara ändra `setupMongo` till `true` och så tar Meteor Up hand om resten.
 
 **Meteor Applikationssökväg**
 
