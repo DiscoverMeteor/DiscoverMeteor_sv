@@ -70,7 +70,7 @@ $ modulus project create
 
 Nästa steg så kommer vi att skapa en MongoDB-databas för vår applikation. Vi kan skapa en MongoDB-databas med [Modulus själv](https://modulus.io/codex/database/getting_started), [MongoHQ](https://www.mongohq.com/) eller med någon annan moln-MongoDB-leverantör.
 
-////
+När vi har skapat vår MongoDB-databas så kan hämta sätta `MONGO_URL`:en för den genom Modulus egna webbgränssnitt (gå till Dashboard > Databases > Select your database > Administration), använd den sedan för att konfigurera din applikation såhär:
 
 ~~~bash
 $ modulus env set MONGO_URL "mongodb://<user>:<pass>@mongo.onmodulus.net:27017/<database_name>"
