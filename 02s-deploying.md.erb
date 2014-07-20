@@ -1,10 +1,10 @@
 ---
-title: Deployment
+title: Driftsättning
 slug: deploying
 date: 0002/01/02
 number: 2.5
 sidebar: true
-contents: Learn how to deploy on Meteor.com.|Learn how to deploy on Modulus.|Learn how to deploy on your own server using Meteor Up.
+contents: Lära dig hur man driftsätter på Meteor.com.|Lära dig hur man driftsätter på Modulus.|Lära dig hur man driftsätter på din egen server med Meteor Up.
 paragraphs: 46
 ---
 
@@ -16,7 +16,7 @@ paragraphs: 46
 
 <% note do %>
 
-### Introducing Sidebars
+### Introduktion av sidofält
 
 ////
 
@@ -24,7 +24,7 @@ paragraphs: 46
 
 <% end %>
 
-### Deploying On Meteor
+### Driftsättning på Meteor
 
 ////
 
@@ -38,10 +38,6 @@ $ meteor deploy myapp.meteor.com
 
 ////
 
-### Password Protection
-
-////
-
 ~~~~bash
 $ meteor deploy myapp.meteor.com -p
 ~~~~
@@ -50,7 +46,7 @@ $ meteor deploy myapp.meteor.com -p
 
 ////
 
-### Deploying On Modulus
+### Driftsättning på Modulus
 
 ////
 
@@ -106,7 +102,7 @@ $ modulus deploy
 
 ////
 
-### Initializing Meteor Up
+### Installation av Meteor Up
 
 ////
 
@@ -128,13 +124,13 @@ $ mup init
 
 <% note do %>
 
-### Sharing with Dropbox
+### Dela med Dropbox
 
 ////
 
 <% end %>
 
-### Meteor Up Configuration
+### Meteor Up Konfiguration
 
 ////
 
@@ -144,7 +140,7 @@ $ mup init
 
 ~~~js
 {
-  //server authentication info
+  //serverns autentiseringsinformation
   "servers": [{
     "host": "hostname",
     "username": "root",
@@ -153,13 +149,13 @@ $ mup init
     //"pem": "~/.ssh/id_rsa"
   }],
 
-  //install MongoDB in the server
+  //installera MongoDB på servern
   "setupMongo": true,
 
-  //location of app (local directory)
+  //sökväg till applikationen (lokal katalog)
   "app": "/path/to/the/app",
 
-  //configure environmental
+  //konfigurera miljövariabler
   "env": {
     "ROOT_URL": "http://supersite.com"
   }
@@ -169,27 +165,27 @@ $ mup init
 
 ////
 
-**Server Authentication**
+**Server Autentisering**
 
 ////
 
 ////
 
-**MongoDB Configuration**
+**MongoDB Konfiguration**
 
 ////
 
 ////
 
-**Meteor App Path**
+**Meteor Applikationssökväg**
 
 ////
 
-**Environment Variables**
+**Miljövariabler**
 
 ////
 
-### Setting Up and Deploying
+### Uppsättning och driftsättning
 
 ////
 
@@ -205,7 +201,7 @@ $ mup deploy
 
 ////
 
-### Displaying Logs
+### Visa Loggar
 
 ////
 
