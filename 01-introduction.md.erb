@@ -11,45 +11,45 @@ Gör en litet mentalt experiment för mig. Föreställ dig att du öppnar samma 
 
 Nu klickar du i ett av fönstren och tar bort en fil. Försvann filen från det andra fönstret också?
 
-Du behöver faktiskt inte göra dom här stegen för att förstå att det fungerade så. När vi ändrar något på vårt lokala filsystem så appliceras ändringen överallt utan behovet att uppdateringar eller tillbaka-anrop. Det bara funkar.
+Du behöver faktiskt inte göra dom här stegen för att förstå att det fungerade så. När vi ändrar något på vårt lokala filsystem så appliceras ändringen överallt utan behovet av uppdateringar eller tillbaka-anrop. Det bara funkar.
 
-Hur som helst, låt oss tänka hur samma scenario spelar ut sig på webben. Till exempel, låt oss säga att du öppnar en WordPress adminsida i två webbläsarefönster och skapar sen en ny artikel i en av dom. Till skillnad mot på skrivbordet, oavsett hur länge du väntar, så kommer inte det andra fönstret reflektera förändringen om du inte uppdaterar det.
+Hur som helst, låt oss tänka hur samma scenario utspelar sig på webben. Till exempel, låt oss säga att du öppnar en WordPress adminsida i två webbläsarfönster och skapar sen en ny artikel i ett av dom. Till skillnad mot på skrivbordet, oavsett hur länge du väntar, så kommer inte det andra fönstret reflektera förändringen om du inte uppdaterar det.
 
 Under åren har vi vant oss vid tanken att en webbplats är något som man endast kommunicerar med i korta, separata skurar.
 
-Men Meteor är en del av en ny våg av ramverk och tekniker som letar sig till att utmana denna status queue genom att göra webben både realtid och reaktiv.
+Men Meteor är en del av en ny våg av ramverk och tekniker som letar sig till att utmana denna status quo genom att göra webben både realtid och reaktiv.
 
 ### Vad är Meteor?
 
-Meteor är ett ramverk bygg på toppen av Node.js för att bygga realtids-webbapplikationer. Det är det som sitter mellan din applikations databas och dess gränssnitt och ser till att båda hålls i synk.
+Meteor är ett ramverk byggt på toppen av Node.js för att bygga realtids-webbapplikationer. Det är det som sitter mellan din applikations databas och dess gränssnitt och ser till att båda hålls i synk.
 
-Eftersom det är byggt på Node.js så använder det JavaScript på både client:en och servern. Utöver det är Meteor också kapabel till att dela kod mellan båda miljöerna.
+Eftersom det är byggt på Node.js så använder det JavaScript på både klienten och servern. Utöver det är Meteor också kapabel till att dela kod mellan båda miljöerna.
 
-Resultatet av allt detta är ett ramverk som hanterar att vara mycket kraftfullt och enkelt genom att abstrahera bort många vanliga problem och fallgropar man stöter på vid webb-applikationsutveckling.
+Resultatet av allt detta är ett ramverk som, genom att abstrahera bort många vanliga problem och fallgropar man stöter på vid applikationsutveckling på webben, både är mycket kraftfullt och enkelt.
 
 ### Varför Meteor?
 
 Så varför ska du lägga din tid på att lära dig Meteor framför ett annat ramverk? Om man bortser från alla de olika funktionerna i Meteor, så tror vi att det handlar om en sak: Meteor är lätt att lära sig.
 
-Lättare att lära än något annat ramverk, Meteor gör det möjligt att få upp och igång en realtids-webbapplikation på bara ett par timmar. Och om du någonsin tidigare gjort front-end-utveckling, så är du redan bekant med JavaScript och kommer inte behöva lära dig ett nytt språk.
+Då det är lättare att lära än något annat ramverk, gör Meteor det möjligt att få upp och igång en realtids-webbapplikation på bara ett par timmar. Och om du någonsin tidigare gjort front-end-utveckling, så är du redan bekant med JavaScript och kommer inte behöva lära dig ett nytt språk.
 
 Meteor kanske är det ideala ramverk för dina behov, eller så är det inte de. Men eftersom du kan komma igång på loppet av några kvällar eller en helg, så varför inte prova och ta reda på svaret själv?
 
 ### Varför denna boken?
 
-De senaste 6 månaderna har vi jobbat på [Telescope](http://telesc.pe), en Meteor-applikation i öppen källkod som låter vem som helst att skapa sin egna sociala nyhets hemsida (som t.ex. [Reddit](http://reddit.com) eller [Hacker news](http://news.ycombinator.com)), där folk kan skicka in länkar och rösta på dem.
+De senaste 6 månaderna har vi jobbat på [Telescope](http://telesc.pe), en Meteor-applikation i öppen källkod som låter vem som helst att skapa sin egna sociala nyhets-hemsida (som t.ex. [Reddit](http://reddit.com) eller [Hacker news](http://news.ycombinator.com)), där folk kan skicka in länkar och rösta på dem.
 
-Vi lärde oss massor när vi byggde applikationen, men det var inte alltid enkelt att hitta svaren till våra frågor. Vi var tvungna att pussla ihop saker från många olika källor, och i många fall t.o.m. uppfinna våra egna lösningar. Så med denna boken ville vi dela med oss av de vi lärt oss, och skapa en enkel steg-för-steg guide som leder dig egenom byggandendet av en fullfjädrad Meteor applikation från grunden.
+Vi lärde oss massor när vi byggde applikationen, men det var inte alltid enkelt att hitta svar på våra frågor. Vi var tvungna att pussla ihop saker från många olika källor, och i många fall t.o.m. uppfinna våra egna lösningar. Så med denna boken vill vi dela med oss av det vi lärt oss, och skapa en enkel steg-för-steg guide som leder dig genom byggandet av en fullfjädrad Meteor-applikation från grunden.
 
-Applikationen vi bygger blir en lätt modifierad version av Telescope, som vi kommer kalla Microscope. Medan vi bygger den kommer vi ta upp de olika delar som ingår i att bygga en Meteor applikation, till exempel användarkonton, Meteor collections, routing och mycket mer.
+Applikationen vi bygger blir en lätt modifierad version av Telescope, som vi kommer kalla Microscope. Medan vi bygger den kommer vi ta upp de olika delar som ingår i att bygga en Meteor-applikation, t.ex. användarkonton, Meteor collections, routing och mycket mer.
 
-Och efter att du har läst denna boken, så om du vill gå vidare så kommer du lätt kunna förstå koden i Telescope, eftersom det följer samma mönster.
+Om du efter att du läst denna boken vill gå vidare så kommer du lätt kunna förstå koden i Telescope, eftersom den följer samma mönster.
 
 ### Vem är den här boken för?
 
-Ett av våra mål med att skriva denna boken var att hålla saker och ting lätta att ta till sig och förstå. Så att du borde kunna hänga med även om du tidigare inte har någon erfarenhet av Meteor, Node, MVC-ramverk eller även generell server kodning.
+Ett av våra mål med att skriva denna boken var att hålla saker och ting lätta att ta till sig och förstå. Du borde därför kunna hänga med även om du tidigare inte har någon erfarenhet av Meteor, Node, MVC-ramverk eller generell server-kodning.
 
-Men utöver detta så antar vi att ni är bekant med JavaScript syntax och koncept. Men om du någonsin har hackat samman lite jQuery-kod eller lekt med webbläsarens konsoll, så kommer du hänga med här.
+Utöver detta så antar vi att du är bekant med JavaScript syntax och koncept. Om du någonsin har hackat samman lite jQuery-kod eller lekt med webbläsarens konsoll, så kommer du hänga med här.
 
 ### Om författarna
 
@@ -57,37 +57,37 @@ Om du undrar vilka vi är och varför du ska lita på oss, så får du här lite
 
 <%= image "tom-photo.jpg", "portrait" %>
 
-**Tom Coleman** är en del av [Percolate Studio](http://percolatestudio.com/), en webbyrå med fokus på kvalitet och användaruppleveler. Han är medgrundaren till [Meteorite](https://github.com/oortcloud/meteorite) och [Atmosphere](https://atmospherejs.com), också även hjärnan bakom många andra öppen källkods-projekt (som t.ex. [Iron Router](https://github.com/EventedMind/iron-router).
+**Tom Coleman** är en del av [Percolate Studio](http://percolatestudio.com/), en webbyrå med fokus på kvalitet och användaruppleveler. Han är medgrundaren till [Meteorite](https://github.com/oortcloud/meteorite) och [Atmosphere](https://atmospherejs.com), och även hjärnan bakom många andra öppen källkods-projekt (som t.ex. [Iron Router](https://github.com/EventedMind/iron-router).
 
 <%= image "sacha-photo.jpg", "portrait" %>
 
-**Sacha Greif** har arbetat på startups som till exempel [Hipmunk](http://hipmunk.com) och [RubyMotion](http://rubymotion.com) som produkt- och webdesigner. Han är skaparen av [Telescope](http://telesc.pe) och [Sidebar](http://sidebar.io) (som är baserat på Telescope), och är också grundaren till [Folyo](http://folyo.me).
+**Sacha Greif** har arbetat på startups som t.ex. [Hipmunk](http://hipmunk.com) och [RubyMotion](http://rubymotion.com) som produkt- och webdesigner. Han är skaparen av [Telescope](http://telesc.pe) och [Sidebar](http://sidebar.io) (som är baserat på Telescope), och är också grundaren till [Folyo](http://folyo.me).
 
 ### Kapitel & Sidofält
 
-Vi ville att denna bok skulle vara användbar för både nybörjare till Meteor och mer avancerade programmerare, så vi har delat upp kapitel i två kategorier: vanliga kapitel (numrerade 1 till 14) och sidofält (.5 nummer).
+Vi ville att denna bok skulle vara användbar för både nybörjare till Meteor och mer avancerade programmerare, så vi har delat upp bokens kapitel i två kategorier: vanliga kapitel (numrerade 1 till 14) och sidofält (.5 nummer).
 
 Vanliga kapitel leder dig igenom byggandet av applikationen, och andra försöker att få dig stridsberedd så tidigt som möjligt genom att beskriva viktiga steg utan köra ner dig i för mycket detaljer.
 
 Sidofält kommer å andra sidan att djupdyka i Meteors komplexiteter, och de kommer ge dig en bättre förstålse för vad som egentligen händer bakom kulisserna.
 
-Så om du är en nybörjare så känn dig fri att skippa sidofälten på din första läsning, kom sedan tillbaka till dom senare när du har lekt runt med Meteor.
+Så om du är en nybörjare känn dig fri att skippa sidofälten vid din första läsning. Kom sedan tillbaka till dom senare när du har lekt runt med Meteor.
 
 ### Commits & Live Instanser
 
 Det finns inget värre än att hänga med i en programmeringsbok och plötsligt inse att koden har kommit ur synk med exemplerna och ingenting fungerar som de borde längre.
 
-För att undvika detta, så har vi satt upp [ett GitHub repo för Microscope](https://github.com/DiscoverMeteor/Microscope), och vi kommer också tillhanda direktlänkar till git commits för varje liten kodändring. Ytterligar så länkar varje commit till en live-instans av applikationen vid ett specifikt commit, så att du kan jämföra den med din lokala kopia. Här är ett exempel på hur det kommer se ut:
+För att undvika detta, så har vi satt upp [ett GitHub repo för Microscope](https://github.com/DiscoverMeteor/Microscope), och vi kommer också tillhanda direktlänkar till git commits för varje liten kodändring. Ytterligar så länkar varje commit till en live-instans av applikationen vid en specifikt commit, så att du kan jämföra den med din lokala kopia. Här är ett exempel på hur det kommer se ut:
 
 <%= commit "11-2", "Visa notiser i sidhuvudet." %>
 
-Men notera att även om vi tillhandahållit dessa commits så betyder det inte att du ska gå mellan en `git checkout` till nästa. Du kommer lära dig mycket bättre om du tar dig tid att manuellt skriva din applikations kod!
+Notera att även om vi tillhandahållit dessa commits så betyder det inte att du ska gå mellan en `git checkout` till nästa. Du kommer lära dig mycket bättre om du tar dig tid att manuellt skriva din applikations kod!
 
 ### Ett par andra resurser
 
-Om du någonsin vill lära dig mer om en specifik aspekt om Meteor, så är [den officiella Meteor dokumentationen](http://docs.meteor.com/) det bästa stället att starta på.
+Om du någonsin vill lära dig mer om en specifik aspekt av Meteor, så är [den officiella Meteor-dokumentationen](http://docs.meteor.com/) det bästa stället att starta på.
 
-Vi rekommenderar också [Stack Overflow](http://stackoverflow.com/questions/tagged/meteor) för felsökningar och frågor, och #meteor [IRC kanalen](https://webchat.freenode.net/) kan du använda om du behöver live-hjälp.
+Vi rekommenderar också [Stack Overflow](http://stackoverflow.com/questions/tagged/meteor) för felsökningar och frågor, och #meteor [IRC-kanalen](https://webchat.freenode.net/) kan du använda om du behöver live-hjälp.
 
 <% note do %>
 
@@ -97,7 +97,7 @@ Att vara bekant med Git versionskontroll är inte ett strikt behov för att hän
 
 Om du vill komma ikapp fort, så rekommenderar vi Nick Farina's [Git Is Simpler Than You Think](http://nfarina.com/post/9868516270/git-is-simpler).
 
-Om du är en nybörjare till Git, rekommenderar vi också applikationen [GitHub för Mac](http://mac.github.com/), som låter dig klona och hantera repon utan att använda terminalen.
+Om du är nybörjare till Git, rekommenderar vi också applikationen [GitHub för Mac](http://mac.github.com/), som låter dig klona och hantera repon utan att använda terminalen.
 
 <% end %>
 
@@ -106,4 +106,4 @@ Om du är en nybörjare till Git, rekommenderar vi också applikationen [GitHub 
 - Om du vill komma i kontakt med oss, så kan du maila oss på [hello@discovermeteor.com](mailto:hello@discovermeteor.com).
 - Ytterligare, om du hittar en felstavning eller annat fel i bokens innehåll, så kan du uppmärksamma oss på det genom att [submitta en bugg i detta GitHub repot](https://github.com/DiscoverMeteor/book/issues).
 - Om du har problem med Microscope-kod, så kan du [submitta en bugg i Microscope-repot](https://github.com/DiscoverMeteor/Microscope/issues).
-- Slutligen för alla andra frågor kan du också helt enkelt lämna en kommentar på denna applikationens sidopanel.
+- Slutligen för alla andra frågor kan du helt enkelt lämna en kommentar på denna applikationens sidopanel.
