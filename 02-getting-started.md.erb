@@ -181,9 +181,9 @@ De enda undantagen till denna regel är filnamn, som kommer ha understreck (`my_
 
 ### Skötsel av CSS
 
-Denna bok handlar inte om CSS. Så för att undvika att sakta ner dig med styling detaljer, så har vi valt att göra hela stilmallen tillgänglig från början så att du inte ska behöva oroa dig över det igen.
+Denna boken handlar inte om CSS. För att undvika att sakta ner dig med detaljer kring styling så har vi valt att göra hela stilmallen tillgänglig från början, så att du inte ska behöva oroa dig över det.
 
-CSS laddas automatiskt in och blir miniferiat av Meteor, så till skillnad från andra statiska filer går det direkt in i `/client`, inte i `/public`. Gå vidare och skapa en katalog `client/stylesheets/` nu, och placera filen `style.css` i katalogen.
+CSS laddas automatiskt in och blir minifierat av Meteor. Till skillnad från andra statiska filer läggs CSS-filer direkt in i `/client`, inte i `/public`. Gå nu vidare och skapa katalogen `client/stylesheets/`, och placera filen `style.css` där i.
 
 ~~~css
 .grid-block, .main, .post, .comments li, .comment-form {
