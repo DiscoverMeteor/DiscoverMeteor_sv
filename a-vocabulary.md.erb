@@ -8,27 +8,27 @@ contents: Granska några vanliga Meteor termer.
 paragraphs: 24
 ---
 
-I den här boken kommer du stöta på dessa nya ord och begrepp som används i ett visst sammanhang i Meteor.
+I den här boken kommer du stöta på dessa nya ord och begrepp som används i olika sammanhang i Meteor.
 
 #### Client
 
-När vi talar om en client, så syftar vi på kod som körs i användarens *webbläsare*, oavsett om det är en traditionell webbläsare såsom Firefox eller Safari, eller något så komplext som en UIWebView i en native iPhone applikation.
+När vi talar om en klient (client), så syftar vi på kod som körs i användarens *webbläsare*, oavsett om det är en traditionell webbläsare såsom Firefox eller Safari, eller något så komplext som en UIWebView i en "native" iPhone applikation.
 
 #### Collection
 
-En Meteor Collection är datalagringen som automatiskt synkroniseras mellan client:en och servern. En Collection har ett namn (som t.ex. `posts`), och finns normalt både hos client:en och servern. Medans de beter de sig olika, så har dom ett gemensamt API baserat på Mongos API.
+En Meteor-kollektion (collection) är datalagringen som automatiskt synkroniseras mellan klienten och servern. En kollektion har ett namn (som t.ex. `posts`), och finns normalt både hos klienten och servern. Även fast de beter sig olika, har de ett gemensamt API baserat på Mongos API.
 
 #### Beräkning
 
-En beräkning (computation) är ett block av kod som körs varje gång någan av de reaktiva datakällorna som den beror på förändras. Om du har en reaktiv datakälla (som t.ex. en Sessions-variable) och vill reagera reaktivt på den, kommer du behöva sätta upp en beräkning för den.
+En beräkning (computation) är ett block av kod som körs varje gång någon av de reaktiva datakällorna som den har ett beroende av, förändras. Om du har en reaktiv datakälla (som t.ex. en sessions-variabel) och vill reagera reaktivt på den, kommer du behöva sätta upp en beräkning för den.
 
 #### Cursor
 
-En cursor är resultatet av körningen av en sökfråga till en Mongo Collection. På client:ens sida är en cursor inte bara en array med resultatet, utan ett *reaktivt* object som kan observeras på när objekt i den relevanta collection:en blir tillagda, borttagna och updaterade.
+En cursor är resultatet av körningen av en sökfråga till en Mongo Kollektion. På klientens sida är en cursor inte bara en array med resultatet, utan ett *reaktivt* objekt som kan observeras när objekt i den relevanta kollektionen blir tillagda, borttagna och uppdaterade.
 
 #### DDP
 
-DDP är Meteors Distribuerade Dataprotokoll, alltså det trådade protokoll som används för att synkronisera collection:er och som som tar metodanrop. DDP är avsett som ett generiskt protokoll, som tar plats istället för HTTP för realtidsapplikationer som är datatunga.
+DDP är Meteors Distribuerade Dataprotokoll, alltså det trådade protokoll som används för att synkronisera kollektioner och som som tar metodanrop. DDP är avsett som ett generiskt protokoll, som tar plats istället för HTTP för realtidsapplikationer som är datatunga.
 
 #### Deps
 
@@ -36,49 +36,49 @@ Deps är Meteors reaktiva system. Deps används bakom scenen för att hålla HTM
 
 #### Dokument
 
-Mongo är en dokument-baserad datalagring, där objekten som kommer ur en collection kallas "dokument". De är rena JavaScript objekt (fast de kan inte innehålla funktioner) med ett speciellt fält `_id`, som Meteor använder för att hålla reda på övriga fält i dokumentet över DDP.
+Mongo är en dokument-baserad datalagring, där objekten som kommer från en kollektion kallas "dokument". De är rena JavaScript-objekt (fast de kan inte innehålla funktioner) med ett speciellt fält, nämligen `_id`, som Meteor använder för att hålla reda på övriga fält i dokumentet över DDP.
 
 #### Helpers
 
-När en template behöver rendera något som är mer komplext än ett dokuments fält kan den anropa en hjälpfunktion (en "helper"), som är en funktion som används för att hjälpa renderingen av mallen.
+När ett template behöver rendera något som är mer komplext än ett dokuments fält kan det anropa en hjälpfunktion (en "helper"). Funktionen används för att hjälpa renderingen av mallen.
 
 #### Latency Compensation
 
-Latency Compensation en teknik som används för att tillåta simulering av metodanrop på client:en, för att undvika laggighet medan man väntar på att servern ska svara.
+Latency Compensation är en teknik som används för att tillåta simulering av metodanrop på klienten, för att undvika lagg medan man väntar på att servern ska svara.
 
 #### Metod
 
-En Meteor-metod är ett fjärrprocedursanrop från en client till en server, med viss speciell logik för att hålla reda på collections förändringar och tillåta latency compensation.
+En Meteor-metod är ett fjärrprocedursanrop från en klient till en server, med viss speciell logik för att hålla reda på kollektioners förändringar och tillåta latency compensation.
 
 #### MiniMongo
 
-Client-sidans collection är en datalagring i minnet som erbjuder ett Mongo-liknande API. Det bibliotek som stödjer detta beteende kallas "MiniMongo", för att indikera att det är en mindre version av Mongo som körs helt i minnet.
+Klientsidans kollektion är en datalagring i minnet som erbjuder ett Mongo-liknande API. Det bibliotek som stödjer detta beteende kallas "MiniMongo" och indikerar att det är en mindre version av Mongo som körs helt i minnet.
 
 #### Paket
 
-Ett Meteor-paket (package) kan bestå av JavaScript-kod som körs på servern, JavaScript-kod som körs på client:en, instruktioner för hur man ska omvandla resurser (t.ex. SASS till CSS), och resurser som ska bearbetas.<br/>
+Ett Meteor-paket (package) kan bestå av JavaScript-kod som körs på servern, JavaScript-kod som körs på klienten, instruktioner för hur man ska omvandla resurser (t.ex. SASS till CSS) samt resurser som ska bearbetas.<br/>
 Ett paket är som ett överladdat bibliotek. Meteor kommer med en omfattande uppsättning av grundläggande paket, och det finns också [Atmosphere](http://atmosphere.meteor.com), som är en samling av alla tredjeparts-paket som bidragits av communityt.
 
 #### Publicering
 
-En publicering (publication) är en namngiven samling av data som är anpassad för varje användare som prenumerar till den. Du sätter upp publiceringar på servern.
+En publicering (publication) är en namngiven samling av data som är anpassad för varje användare som prenumererar på den. Publiceringar sätts upp på servern.
 
 #### Server
 
-Meteor-servern är en HTTP och en DDP server som körs via node.js. Den består av alla Meteor bibliotek och JavaScript som du skapat på serversidan. När du startar din Meteor server ansluter den till en Mongo-databas (som startar automatiskt).
+Meteor-servern är en HTTP- och en DDP-server som körs via node.js. Den består av alla Meteor bibliotek och JavaScript som du skapat på serversidan. När du startar din Meteor-server ansluter den till en Mongo-databas (som startar automatiskt).
 
 #### Session
 
-En session i Meteor refererar till client-sidans reaktiva datakälla som används av din applikation för att hålla reda på tillstånd som användaren står vid.
+En session i Meteor refererar till klientsidans reaktiva datakälla som används av din applikation för att hålla reda på tillstånd som användaren står vid.
 
 #### Prenumeration
 
-En prenumeration (subscription) är en anslutning till en publicering för en specifik client. Prenumerationen är kod som körs i webbläsaren som kommunicerar med servern och håller data i sync.
+En prenumeration (subscription) är en anslutning till en publicering för en specifik klient. Prenumerationen är kod som körs i webbläsaren som kommunicerar med servern och håller data synkroniserat.
 
 #### Template
 
-En template är en metod som genererar HTML i JavaScript. Som standard stödjer Meteor Spacebars, ett logiklöst mall-system, även om det finns planer att stödja fler i framtiden.
+En template är en metod som genererar HTML i JavaScript. Som standard stödjer Meteor Spacebars, ett logiklöst mall-system. Det finns planer att stödja fler i framtiden.
 
 #### Template Data Context
 
-När en template renderas, refererar den till ett JavaScript-objekt som innehåller specifik data för just denna rendering. Vanligtvis så är sådanna objekt helt vanliga gamla JavaScript-objekt (POJOs), ofta dokument från en collection, men även vara mer komplicerade och ha funktioner med sig.
+När en template renderas, refererar den till ett JavaScript-objekt som innehåller specifik data för just denna rendering. Vanligtvis så är sådana objekt helt vanliga, gamla JavaScript-objekt (POJOs), vilka ofta är dokument från en kollektion, men kan även vara mer komplicerade och ha funktioner med sig.
