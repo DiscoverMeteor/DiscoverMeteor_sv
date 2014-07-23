@@ -122,12 +122,12 @@ $ mrt add bootstrap
 
 ### En notis om paket
 
-När vi talar om paket i kontextet av Meteor, så spelar det roll att vara specifik. Meteor använder fem grundläggande typer av paket:
+När vi talar om paket i kontextet av Meteor, så är det viktigt att vara specifik. Meteor använder fem grundläggande typer av paket:
 
-- Meteor-kärnan är själv uppdelat i flera olika **kärnpaket**. Dom är inkluderade med varje Meteor applikation, och du kommer i princip aldrig behöva oroa dig för dessa.
-- Meteor **smartpaket** är en grupp av paket [omkring 37 paket](http://docs.meteor.com/#packages) (du kan få den fulla listan med `meteor list`) som kommer paketerade med Meteor och som du kan valfritt lägga till i din applikation. Du kan även lägga till dem när du inte använder Meteorite, med `meteor add packagename`.
-- **Lokala paket** är specialanpassade paket som du kan skapa själv och lägga i mappen `/packages`. Du behöver inte Meteorite för att använda dem heller.
-- **Atmosphere smartpaket** är en tredjeparts Meteor-paket som listas på [Atmosphere](https://atmospherejs.com). Meteorite behövs för att importera dessa.
+- Meteor-kärnan är själv uppdelat i flera olika **kärnpaket**. De är inkluderade i varje Meteor-applikation, och du kommer i princip aldrig behöva oroa dig för dessa.
+- Meteors **smartpaket** är en grupp av [omkring 37 paket](http://docs.meteor.com/#packages) (du kan se den fulla listan med `meteor list`) som kommer paketerade med Meteor och som du valfritt kan lägga till i din applikation. Du kan även lägga till dem när du inte använder Meteorite, med `meteor add packagename`.
+- **Lokala paket** är specialanpassade paket som du kan skapa själv och lägga i mappen `/packages`. Du behöver inte Meteorite för att använda dessa heller.
+- **Atmosphere smartpaket** är tredjeparts Meteor-paket som listas på [Atmosphere](https://atmospherejs.com). Meteorite behövs för att importera dessa.
 - **NPM-paket** (Node-paketerade moduler) är Node.js paket. Även om de inte fungerar direkt "out of the box" med Meteor, så *kan* dom användas av den föregående typen av paket.
 
 <% end %>
