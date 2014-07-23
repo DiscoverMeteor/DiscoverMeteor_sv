@@ -163,7 +163,7 @@ Det korta svaret är nej. Olikt Rails, så påtvingar inte Meteor dig en fördef
 
 ### Ingen public?
 
-Okej, vi ljög. Vi behöver faktiskt inte katalogen `public/` av den enkla orsaken att Microscope inte använder några statiska filer! Men sedan de flesta Meteor applikationer kommer att inkludera åtminstone ett par bilder, så tänkte vi att det var ett viktigt fall att täcka.
+Okej, vi ljög. Vi behöver faktiskt inte katalogen `public/` av den enkla orsaken att Microscope inte använder några statiska filer. Men sedan de flesta Meteor-applikationer kommer att inkludera åtminstone ett par bilder, så tänkte vi att det var viktigt att täcka även detta.
 
 Förresten, du kanske också har lagt märke till den dolda katalogen `.meteor`. Det är här Meteor lagrar sin egen kod, och att förändra saker där är normalt en väldigt dålig idé. Faktum är att du egentligen aldrig ens behöver kika i den katalogen. Undantaget till det är filerna `.meteor/packages` och `.meteor/release`, vilka används respektive för att lista vilka smartpaket och vilken version som ska användas. När du lägger till paket och ändrar Meteor-version, så kan det vara hjälpsamt att kika i ändringar till dessa filer.
 
