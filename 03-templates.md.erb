@@ -1,5 +1,5 @@
 ---
-title: Templates
+title: Mallar
 slug: templates
 date: 0003/01/01
 number: 3
@@ -7,11 +7,11 @@ contents: Learn about Meteor's templating language, Handlebars.|Create your firs
 paragraphs: 46
 ---
 
-////
+För att underlätta instegsfasen till Meteor, använder vi ett utifrån och in perspektiv. Med andra ord börjar vi med att bygga ett "tomt skal" med HTML/JavaScript, för att senare ansluta det till vår applikations kärnfunktionalitet. 
 
-////
+I detta kapitel kommer vi därför endast behandla vad som sker på klientsidan, alltså mappen "/client"
 
-////
+Låt oss börja med att skapa en ny fil med namnet "main.html" i vår mapp "/client" och kopiera in följande kod:
 
 ~~~html
 <head>
@@ -32,25 +32,26 @@ paragraphs: 46
 ~~~
 <%= caption "client/main.html" %>
 
-////
+Detta blir huvudmallen för vår applikation. Som du ser är det bara HTML förutom en '{{> postsList}}' tagg. Denna taggen är insättningspunkten för 'postsList' mallen som vi snart kommer se. Till att börja med, låt oss skapa ett par mallar till.
 
-### Meteor Templates
 
-////
+### Mallar i Meteor
 
-////
+I all enkelhet är en social-nyhetssite uppbyggd av inlägg organiserade i listor, och det är precis så vi organiserar våra mallar. 
+
+Börja med att skapa en '/views' mapp inuti '/client' mappen. Här kommer vi placera alla våra mallar och för att behålla en bra struktur skapar vi också en '/posts' mapp inuti '/views' mappen för våra inläggsrelaterade mallar.
 
 <% note do %>
 
-### Finding Files
+### Sökning efter filer
 
-////
+Meteor är bra på att hitta filer. Oavsett var du placerar kod i '/client' mappen, kommer Meteor att hitta den och kompilera utan problem. Detta betyder att du aldrig manuellt behöver inkludera sökvägar för JavaScript- eller CSS-filer.
 
-////
+Det betyder också att du mycket väl kan placera alla filer i samma mapp, eller till och med all kod i samma fil. Men eftersom Meteor kompilerar allt till en minifierad fil, så spelar det ingen roll. Det blir dock enklare att arbeta med en tydlig fil- och mappstruktur.
 
 <% end %>
 
-////
+Nu är vi äntligen redo att skapa vår andra mall. Skapa en ny fil i mappen 'client/views/posts' med filnamnet 'posts_list.html'
 
 ~~~html
 <template name="postsList">
@@ -63,7 +64,7 @@ paragraphs: 46
 ~~~
 <%= caption "client/views/posts/posts_list.html" %>
 
-////
+Skapa även filen 'post_item.html' i samma mapp:
 
 ~~~html
 <template name="postItem">
@@ -76,55 +77,54 @@ paragraphs: 46
 ~~~
 <%= caption "client/views/posts/post_item.html" %>
 
-////
+Lägg märke till 'name="postsList" attributet för template-elementet. Detta är namnet som används av Meteor för att hålla reda på vilken mall (template) som hör till vad.
 
-////
+Nu är det dags att introducera Meteors mallsystem, namngivet Spacebars. Spacebars är egentligen bara HTML med tre tillägg: *partials*, *expressions* och *block helpers*.
 
-////
+*Partials* använder syntaxen '{{> templateName}}' och instruerar Meteor att byta "partial" mot mallen som har samma namn som variabeln. (I vårat fall 'postItem').
 
-////
+*Expressions* som '{{title}}' anropar antingen en egenskap (property) av samma objekt, eller returnerar värdet från en "template helper" som är definierad i den aktiva mallens hanterare (template manager). Mer om detta senare.
 
-////
-
+Slutligen, *block helpers* är speciella taggar som kontrollerar flödet i mallen, tillexempel '{{#each}}…{{/each}}' or '{{#if}}…{{/if}}'.
 <% note do %>
 
-### Going Further
+### Mer om mallar
 
-////
+Du hittar mer information i dokumentationen för Spacebar (https://github.com/meteor/meteor/blob/devel/packages/spacebars/README.md) om du vill lära dig mer.
 
 <% end %>
 
-////
+Med den nyvunna kunskapen kan vi enklare förstå vad som händer här.
 
-////
+Först, i mallen 'postsList' itererar vi ett 'posts' objekt med hjälp av blockhjälpen '{{#each}}…{{/each}}'. Därefter inkluderar vi mallen 'postItem' i varje iteration.
 
-////
+Var kommer 'posts' -objektet ifrån? Bra fråga. Det är faktiskt en hjälpmallsfunktion (template helper) och vi definierar den när vi går igenom mallhanterare (template managers).
 
-////
+'postItem' -mallen är ganska självförklarande, Den använder bara tre uttryck: '{{url}}' och '{{title}}' returnerar dokumentets egenskaper (properties), och '{{domain}}' anropar en mallhjälpfunktion.
 
-////
+Vi har nämnt "mallhjälpfunktioner" (template helpers) en hel del i detta kapitel, utan att faktiskt förklara vad dessa gör. Men för att kunna göra det, måste vi först prata om hanterare (managers).
 
-### Template Managers
+### Mallhanterare
 
-////
+Fram tills nu har vi använt Spacebars, vilket är lite mer än HTML med några egna taggar. Till skillnad från andra språk som PHP (eller till och med vanliga HTML-sidor, som kan innehålla JavaScript), håller Meteor mallar och deras logik separerad. Med andra ord gör inte mallarna så mycket av sig själva.
 
-////
+För att en mall ska få liv behövs en hanterare (manager). Man kan tänka sig en hanterare som en kock, som tar råa ingredienser (din data) och förbereder dessa innan de färdiga rätterna skickas ut till servitören (mallen), som sedan presenterar det för dig.
 
-////
+Med andra ord, medan en malls roll är ganska begränsad till att visa eller loopa igenom variabler, är hanteraren den som gör det tunga arbetet att tilldela ett värde till varje variabel.
 
 <% note do %>
 
-### Managers?
+### Hanterare?
 
-////
+När vi frågade andra Meteorutvecklare vad de kallade mallhnaterare, svarade hälften "kontrollerare (controllers)", och den andra hälften svarade "filerna som innehåller JavaScriptkod".
 
-////
+Hanterare är egentligen inte kontrollerare (controllers), (i alla fall inte på samma sätt som kontrollers i MVC) och "TFWIPMJSC" är inte så lättanvänt, så vi avfärdade båda förslagen.
 
-////
+Eftersom vi fortfarande ville visa vad vi pratade om, kom vi fram till termen "hanterare" (manager), som en enkel genväg utan tidigare betydelse i befintliga webbramverk.
 
 <% end %>
 
-////
+För att underlätta använder vi namnkonventionen att döpa hanteraren efter mallen, förutom **.js** filändelsen. Så låt oss skapa filen 'posts_list.js' i mappen '/client/views/posts' och börja utvecklandet av vår första hanterare:
 
 ~~~js
 var postsData = [
@@ -150,17 +150,18 @@ Template.postsList.helpers({
 ~~~
 <%= caption "client/views/posts/posts_list.js" %>
 
-////
+Om du har gjort rätt skall du nu se något liknande i din webbläsare:
 
 <%= screenshot "3-1", "Our first templates with static data" %>
 
 <%= commit "3-1", "Added basic posts list template and static data." %>
 
-////
+Vi gör två saker här. Först lägger vi till dummydata i 'postsData' -arrayen. Datan kommer vanligtvis från databasen, men eftersom vi inte har gått igenom det än (det kommer i nästa kapitel), "fuskar" vi lite genom att använda statisk data.
 
-////
+Nästa sak vi gör är att använda Meteors 'Template.myTemplate.helpers()' -funktion för att definiera en mallhjälpfunktion som kallas 'posts', vilken i sin tur returnerar vår 'postsData' -array.
 
-////
+Genom att vi definierat 'posts' -hjälpmallsfunktionen är den nu tillgänglig att användas i vår mall.
+
 
 ~~~html
 <template name="postsList">
@@ -173,11 +174,11 @@ Template.postsList.helpers({
 ~~~
 <%= caption "client/views/posts/posts_list.html" %>
 
-////
+Vår mall kan nu iterera över vår 'postsData' -array och skicka varje objekt i arrayen till vår mall 'postItem'.
 
-### The Value of "this"
+### Värdet av "this"
 
-////
+Nu är det dags att skapa 'post_item.js' -hanteraren:
 
 ~~~js
 Template.postItem.helpers({
@@ -192,40 +193,39 @@ Template.postItem.helpers({
 
 <%= commit "3-2", "Setup a `domain` helper on the `postItem`." %>
 
-////
+I detta fall är vår 'domain' - hjälpfunktions värde inte en array, utan en anonym funktion. Detta mönster är mycket vanligare (och mer användbart) i jämförelse med våra tidigare förenklade exempel.
 
 <%= screenshot "3-2", "Displaying domains for each links." %>
 
-////
+'domain' - hjälpfunktionen får en URL oh returnerar domänen genom lite JavaScriptmagi. Men var får den URL:en från första början?
 
-////
+För att ge svar på det måste vi gå tillbaka till vår 'posts_list.html' -mall. Blocket '{{#each}}' itererar inte bara över vår array, utan **sätter också värdet av 'this' inuti blocket för det itererae objektet**.
 
-////
+Detta betyder att mellan båda '{{#each}}' -taggarna, tilldelas varje inlägg 'this' successivt och det uttökas hela vägen till den inkluderade mallhanteraren ('post_item.js').
 
-////
+Nu fårstår vi varför 'this.url' returnerar det aktiva inläggets URL. Om vi använder '{{title}}' och '{{url}}' inne i vår 'post_item.html' -mall, vet Meteor att vi menar 'this.title' och 'this.url' ovh returnerar därför de korrekta värdena.
 
 <% note do %>
 
-### JavaScript Magic
+### Magi med JavaScript
 
-////
+Även om detta inte är unikt för Meteor, ska vi kortfattat förklara magin som sker med JavaScript ovan. Först skapar vi ett tomt ankare ('a'), vilket är ett HTML-element och sparar det i minnet. 
 
-////
+Vi sätter sedan elementets 'href' -attribut att vara lika med det nuvarande inläggets URL (precis som vi sett, är 'this', objektet som för stunden hanteras).
 
-////
+Slutligen drar vi nytta av 'a' -elementets speciella 'hostname' -egenskap för att komma åt länkens domännamn utan resten av URL:en.
 
 <% end %>
 
-////
+Om du har hängt med så här långt, borde du se en lista med inlägg i din webbläsare. Den listan är bara statisk data, så det använder inte Meteors realtidsfunktionalitet riktigt än. Vi visar hur du ändrar det i nästa kapitel!
 
 <% note do %>
 
-### Hot Code Reload
+### Kod-omladdning
 
-////
+Du kanske har märkt att du inte behövde ladda om webbläsaren efter att du ändrat en fil.
 
-////
+Det beror på att Meteor håller koll på alla filer i projektstrukturen och automatiskt uppdaterar din webbläsare åt dig när en ändring gjorts.
 
-////
-
+Meteors kod-omladdning är ganska smart, den bibehåller till och med det nuvarande läget på din applikation mellan två siduppdateringar.
 <% end %>
