@@ -141,49 +141,49 @@ Skapa sedan fem rotkataloger inne i `/microscope`: `/client`, `/server`, `/publi
 Vi borde nämna att några av dessa kataloger är speciella. När det kommer till filer, så har Meteor ett par regler:
 
 - Kod i katalogen `/server` körs enbart på servern.
-- Kod i katalogen `/client` körs enbart på client:en.
-- Allt annat körs på både client:en och servern.
+- Kod i katalogen `/client` körs enbart på klienten.
+- Allt annat körs på både klienten och servern.
 - Filer i `/lib` laddas före allt annat.
 - Filer med namnet `main.*` laddas före allt annat.
 - Dina statiska filer (fonter, bilder, etc.) läggs i katalogen `/public`.
 
-Notera att även om Meteor har dessa regler så tvingar det dig inte direkt att använda någon fördefinerad filstruktur för din applikation, om du inte vill det. Så den filstruktur vi föreslår är bara vårat sätt att göra saker på, inte något som är skrivet i sten.
+Notera att även om Meteor har dessa regler så är du inte tvungen att använda någon fördefinerad filstruktur för din applikation, om du inte vill det. Så den filstruktur vi föreslår är bara vårt sätt att göra saker på, inte något som är skrivet i sten.
 
-Vi uppmuntrar dig att kolla in [Meteors officiella dokumentation](http://docs.meteor.com/#structuringyourapp) om du vill ha mer detaljer på ämnet.
+Vi uppmuntrar dig att kolla in [Meteors officiella dokumentation](http://docs.meteor.com/#structuringyourapp) om du vill ha mer detaljer i ämnet.
 
 <% note do %>
 
 ### Är Meteor MVC?
 
-Om du kommer till Meteor från ett annat ramverk såsom Ruby on Rails, så kanske du undrar om Meteor applikationer anpassar sig till MVC (Model View Controller) mönster.
+Om du kommer till Meteor från ett annat ramverk såsom t.ex. Ruby on Rails, så kanske du undrar om Meteor anpassar sig till mönstret MVC (Model View Controller).
 
-Det korta svaret är nej. Olikt Rails, så påtvingar inte Meteor dig en fördefinerad struktur på din applikation. Så i denna boken kommer vi helt enkelt lägga ut koden på det mest tydliga sätt som ger mest förståelse, utan att bry oss för mycket om förkortningar.
+Det korta svaret är nej. Olikt Rails, så påtvingar inte Meteor dig en fördefinerad struktur på din applikation. I denna boken kommer vi helt enkelt lägga ut koden på det mest tydliga sätt som ger mest förståelse, utan att bry oss för mycket om förkortningar.
 
 <% end %>
 
 ### Ingen public?
 
-Okej, vi ljög. Vi behöver faktiskt inte katalogen `public/` av den enkla orsaken att Microscope inte använder några statiska filer! Men sedan de flesta Meteor applikationer kommer att inkludera åtminstone ett par bilder, så tänkte vi att det var ett viktigt fall att täcka.
+Okej, vi ljög. Vi behöver faktiskt inte katalogen `public/` av den enkla orsaken att Microscope inte använder några statiska filer. Men sedan de flesta Meteor-applikationer kommer att inkludera åtminstone ett par bilder, så tänkte vi att det var viktigt att täcka även detta.
 
-Förresten, du kanske också har lagt märke till den dolda katalogen `.meteor`. Det är här Meteor lagrar sin egen kod, och att förändra saker där är normalt en väldigt dålig idé. Faktum är att du egentligen aldrig ens behöver kika i den katalogen. Undantaget till det är filerna `.meteor/packages` och `.meteor/release`, vilka används respektive för att lista vilka smartpaket och vilken version som ska användas. När du lägger till paket och ändrar Meteor-version, så kan det vara hjälpsamt att kika i ändringar till dessa filer.
+Förresten, du kanske också har lagt märke till den dolda katalogen `.meteor`. Det är här Meteor lagrar sin egen kod, och att förändra saker där är normalt sett en väldigt dålig idé. Faktum är att du egentligen aldrig behöver kika i den katalogen. Undantaget till det är filerna `.meteor/packages` och `.meteor/release`, vilka används respektive för att lista vilka smartpaket och vilken version som ska användas. När du lägger till paket och ändrar Meteor-version, så kan det vara hjälpsamt att kika i ändringar till dessa filer.
 
 <% note do %>
 
 ### Understreck vs CamelCase
 
-Den enda sak vi kommer säga om den urgamla understreck (`my_variable`) vs camelCase (`myVariable`) debatten är att det spelar egentligen ingen roll vilken du väljer sålänge du håller dig till en.
+Det enda vi kommer säga om den urgamla understreck (`my_variable`) vs camelCase (`myVariable`) debatten är att det spelar ingen roll vilken du väljer så länge du håller dig till en.
 
-I den här boken kommer vi använda camelCase eftersom det är de vanliga sättet att göra saker i JavaScript (trots allt, det är ändå JavaScript, inte java_script!).
+I den här boken kommer vi använda camelCase eftersom det är de vanliga sättet att göra saker i JavaScript (det är trots allt JavaScript, inte java_script).
 
-Dom ända undantag till denna regel är filnamn, som kommer ha understreck (`my_file.js`), och CSS klasser som använder bindestreck (`.my-class`). Orsaken till detta är att i filsystemet är understreck mest vanligt, samt CSS syntax använder redan själv bindestreck (`font-family`, `text-align`, etc.).
+De enda undantagen till denna regel är filnamn, som kommer ha understreck (`my_file.js`), och CSS-klasser, som använder bindestreck (`.my-class`). Orsaken till detta är att understreck är vanligast i filsystemet, samt att CSS syntax använder redan bindestreck (`font-family`, `text-align`, etc.).
 
 <% end %>
 
 ### Skötsel av CSS
 
-Denna bok handlar inte om CSS. Så för att undvika att sakta ner dig med styling detaljer, så har vi valt att göra hela stilmallen tillgänglig från början så att du inte ska behöva oroa dig över det igen.
+Denna boken handlar inte om CSS. För att undvika att sakta ner dig med detaljer kring styling så har vi valt att göra hela stilmallen tillgänglig från början, så att du inte ska behöva oroa dig över det.
 
-CSS laddas automatiskt in och blir miniferiat av Meteor, så till skillnad från andra statiska filer går det direkt in i `/client`, inte i `/public`. Gå vidare och skapa en katalog `client/stylesheets/` nu, och placera filen `style.css` i katalogen.
+CSS laddas automatiskt in och blir minifierat av Meteor. Till skillnad från andra statiska filer läggs CSS-filer direkt in i `/client`, inte i `/public`. Gå nu vidare och skapa katalogen `client/stylesheets/`, och placera filen `style.css` där i.
 
 ~~~css
 .grid-block, .main, .post, .comments li, .comment-form {
@@ -289,7 +289,7 @@ body {
 
 ### En notis om CoffeeScript
 
-I denna boken kommer vi skriva i ren JavaScript. Men om du föredrar CoffeeScript, så har Meteor stöd för det. Lätt helt enkelt till CoffeeScript-paketet så är du redo att köra:
+I denna boken kommer vi att skriva i ren JavaScript, men om du föredrar CoffeeScript så har Meteor stöd för det. Lägg helt enkelt till CoffeeScript-paketet så är du redo att köra:
 
 `mrt add coffeescript`
 
